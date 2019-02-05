@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.tmp
+.sass-cache
+bower_components
+.idea
+/dist
+package-lock.json
+/debug
+/jsql-angular1-test-app.iml

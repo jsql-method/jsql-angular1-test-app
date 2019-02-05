@@ -1,0 +1,21 @@
+<div class="home-page">
+
+
+    <p><span>JSQL AngularJS (1.6)</span> - unit testing</p>
+    <table>
+        <thead>
+        <th>Case</th>
+        <th>Duration (ms)</th>
+        <th>Status</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(caseName, caseObj) in vm.cases track by $index">
+                <td>{{caseName}}</td>
+                <td>{{vm.results[caseName].duration}}</td>
+                <td class="{{vm.results[caseName].status.toLowerCase()}}">{{vm.results[caseName].status}}</td>';
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

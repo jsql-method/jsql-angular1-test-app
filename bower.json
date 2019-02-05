@@ -1,0 +1,26 @@
+{
+  "name": "jsql-angular-test-app",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-cookies": "^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "jquery": "^2.1.0"
+  },
+  "resolutions": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-cookies": "^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "jquery": "~2.2.0"
+  }
+}
