@@ -1,1 +1,1 @@
-cd ../jsql-js-core && grunt && cd ../jsql-angular1 && grunt dev && cd ../jsql-angular1-test-app && grunt local
+cd ../jsql-js-core && dev.bat && cd ../jsql-angular1 && grunt dev && cd ../jsql-angular1-test-app && grunt local

@@ -25,6 +25,10 @@ var app = angular.module('testApp',
 
     .config(['jsqlProvider', function (jsqlProvider) {
 
-        jsqlProvider.setConfig({host: 'http://localhost:18088'});
+        jsqlProvider.setConfig({
+            host: window.host,
+            apiKey: window.apiKey,
+            devKey: window.devKey
+        });
 
     }]);
