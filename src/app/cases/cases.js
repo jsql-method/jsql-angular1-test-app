@@ -46,7 +46,7 @@
                         age: 38
                     })
                     .then(function (result) {
-                        console.log(cases.names.caseName1, result);
+                        console.log(cases.names.caseName1, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -83,7 +83,7 @@
                 jsql.insert("insert into car (id, price, year, model) values (nextval('car_id_seq'), ?, ?, ?)")
                     .params([19.500, 2000, 'Audi A3'])
                     .then(function (result) {
-                        console.log(cases.names.caseName2, result);
+                        console.log(cases.names.caseName2, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -119,7 +119,7 @@
                 jsql.update("update person set salary = 4000 where age > :age")
                     .param('age', 30)
                     .then(function (result) {
-                        console.log(cases.names.caseName3, result);
+                        console.log(cases.names.caseName3, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -157,7 +157,7 @@
                 jsql.update("update car set type = ?")
                     .params([ 'osobowy' ])
                     .then(function (result) {
-                        console.log(cases.names.caseName4, result);
+                        console.log(cases.names.caseName4, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -194,7 +194,7 @@
                     .param('ageMin', 30)
                     .param('ageMax', 50)
                     .then(function (result) {
-                        console.log(cases.names.caseName5, result);
+                        console.log(cases.names.caseName5, result.data);
 
                         if (!jsql.isArray(result)) {
                             resultCallback('SUCCESS');
@@ -235,9 +235,10 @@
 
                 jsql.select("select id, price from car")
                     .then(function (result) {
-                        console.log(cases.names.caseName6, result);
 
-                        if (jsql.isArray(result)) {
+                        console.log(cases.names.caseName6, result.data);
+                        
+                        if (jsql.isArray(result.data)) {
                             resultCallback('SUCCESS');
                         } else {
                             resultCallback('FAILED');
@@ -276,7 +277,7 @@
 
                 jsql.remove("delete from person where age > 30")
                     .then(function (result) {
-                        console.log(cases.names.caseName7, result);
+                        console.log(cases.names.caseName7, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -313,7 +314,7 @@
                         price: 10.000
                     })
                     .then(function (result) {
-                        console.log(cases.names.caseName8, result);
+                        console.log(cases.names.caseName8, result.data);
                         resultCallback('SUCCESS');
                     })
                     .catch(function (error) {
@@ -351,10 +352,10 @@
                 transaction.insert("insert into car (id, price, year, model) values (nextval('car_id_seq'), ?, ?, ?)")
                     .params([180000, 2018, 'Audi A6'])
                     .then(function (result) {
-                        console.log(cases.names.caseName9, result);
+                        console.log(cases.names.caseName9, result.data);
 
                         transaction.rollback().then(function(result){
-                            console.log(cases.names.caseName9, result);
+                            console.log(cases.names.caseName9, result.data);
                             resultCallback('SUCCESS');
                         });
 
@@ -393,10 +394,10 @@
                 transaction.insert("insert into car (id, price, year, model) values (nextval('car_id_seq'), ?, ?, ?)")
                     .params([200000, 2019, 'Volkswagen Variant'])
                     .then(function (result) {
-                        console.log(cases.names.caseName10, result);
+                        console.log(cases.names.caseName10, result.data);
 
                         transaction.commit().then(function(result){
-                            console.log(cases.names.caseName10, result);
+                            console.log(cases.names.caseName10, result.data);
                             resultCallback('SUCCESS');
                         });
 

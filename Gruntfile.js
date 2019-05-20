@@ -182,7 +182,7 @@ module.exports = function (grunt) {
         preprocess: {
             options: {
                 context: {
-                    HOST: null
+                    HOST: 'https://provider.jsql.it'
                 }
             },
             index: {
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
                     dist: 'dist/app.min.js',
                     devKeyFileName: 'test-key.key',
                     debug: true,
-                    local: false
+                    local: true
                 }
             }
         }
@@ -215,7 +215,8 @@ module.exports = function (grunt) {
         'concat:jsDist',
         'ngAnnotate',
         'concat:css',
-        'jsql'
+        'jsql',
+        'preprocess:index'
     ]);
 
     grunt.registerTask('buildLocal', [
