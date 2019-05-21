@@ -1,7 +1,7 @@
 <div class="home-page">
 
 
-    <p><span>JSQL AngularJS (1.6)</span> - unit testing</p>
+    <p><span>JSQL AngularJS (1.7.8)</span> - unit testing</p>
     <table>
         <thead>
         <th>Case</th>
@@ -9,10 +9,10 @@
         <th>Status</th>
         </thead>
         <tbody>
-            <tr ng-repeat="(caseName, caseObj) in vm.cases track by $index">
-                <td>{{caseName}}</td>
-                <td>{{vm.results[caseName].duration}}</td>
-                <td class="{{vm.results[caseName].status.toLowerCase()}}">{{vm.results[caseName].status}}</td>';
+            <tr ng-repeat="result in vm.results track by $index">
+                <td>{{result.caseName}}</td>
+                <td>{{result.duration}}</td>
+                <td class="{{result.status.toLowerCase()}}">{{result.status}}</td>';
             </tr>
         </tbody>
     </table>

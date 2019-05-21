@@ -1,1 +1,6 @@
-cd ../jsql-js-core && grunt && cd ../jsql-angular1 && grunt dev && cd ../jsql-angular1-test-app && grunt buildLocal
+CALL cd ../jsql-js-core
+CALL grunt
+CALL cd ../jsql-angular1
+CALL grunt dev
+CALL cd ../jsql-angular1-test-app
+CALL grunt buildLocal

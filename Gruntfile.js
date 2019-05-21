@@ -3,7 +3,7 @@
 var options = {
 
     appFilesLocal: [
-        '../jsql-angular1/dist/jsql-angular.min.js',
+        '../jsql-angular1/dist/jsql-angular.js',
         './src/app/modules.js',
         './src/app/cases/**/*.js',
         './src/app/controllers/**/*.js',
@@ -179,12 +179,28 @@ module.exports = function (grunt) {
             }
         },
 
+        preprocess: {
+            options: {
+                context: {
+                    HOST: 'https://provider.jsql.it'
+                }
+            },
+            index: {
+                src: 'dist/index.html',
+                dest: 'dist/index.html'
+            },
+
+        },
+
         jsql: {
             target: {
                 options: {
-                    apiKey: '==iSqF8rKvVeSgqudKDOXpjiFgGMJh1PbeouIz9IW/YQ==9CI8ox66gogpoSXm6yrU',
-                    src: 'dist',
-                    dist: 'dist'
+                    apiKey: 'dawid.senko@jsql.it',
+                    src: 'dist/app.min.js',
+                    dist: 'dist/app.min.js',
+                    devKeyFileName: 'test-key.key',
+                    debug: true,
+                    local: true
                 }
             }
         }
@@ -199,7 +215,8 @@ module.exports = function (grunt) {
         'concat:jsDist',
         'ngAnnotate',
         'concat:css',
-        'jsql'
+        'jsql',
+        'preprocess:index'
     ]);
 
     grunt.registerTask('buildLocal', [
@@ -210,13 +227,14 @@ module.exports = function (grunt) {
         'concat:jsLocal',
         'ngAnnotate',
         'concat:css',
-        'jsql'
+        'jsql',
+        'preprocess-watch'
     ]);
 
     grunt.registerTask('watch-html', function () {
 
         grunt.task.run([
-            'copy:index', 'html2js'
+            'copy:index', 'html2js', 'preprocess-watch'
         ]);
 
     });
@@ -238,6 +256,16 @@ module.exports = function (grunt) {
             'connect:dist',
             'concurrent:dist'
         ]);
+    });
+
+
+    grunt.registerTask('preprocess-watch', function () {
+
+        grunt.config('preprocess.options.context.HOST', 'http://localhost:9192');
+        // grunt.config('preprocess.options.context.HOST', 'https://provider.jsql.it');
+
+        grunt.task.run('preprocess:index');
+
     });
 
 };

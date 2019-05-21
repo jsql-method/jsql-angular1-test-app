@@ -3,34 +3,17 @@
 
     angular
         .module('testApp')
-        .controller('HomeController', ['$scope',  'SelectCases', 'InsertCases', 'UpdateCases', 'DeleteCases', HomeController]);
+        .controller('HomeController', ['$scope',  'Cases', HomeController]);
 
     /**
      * @ngInject
      */
-    function HomeController($scope, SelectCases, InsertCases, UpdateCases, DeleteCases) {
+    function HomeController($scope, Cases) {
         var vm = this;
 
-        vm.cases = {};
-        vm.results = {};
+        vm.results = Cases.results;
 
-        Object.assign(vm.cases, SelectCases);
-        Object.assign(vm.cases, InsertCases);
-        Object.assign(vm.cases, UpdateCases);
-        Object.assign(vm.cases, DeleteCases);
-
-        angular.forEach(vm.cases, function(caseObj, caseName){
-
-            (function(caseObj, caseName){
-
-                caseObj(function(status, duration){
-                    console.log(vm.results);
-                    vm.results[caseName] = { status: status, duration: duration };
-                });
-
-            })(caseObj, caseName);
-
-        });
+        Cases.cases[Cases.names.caseName1]();
 
     }
 })(angular);
