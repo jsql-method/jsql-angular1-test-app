@@ -251,11 +251,11 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', function () {
-        grunt.task.run([
-            'buildDist',
-            'connect:dist',
-            'concurrent:dist'
-        ]);
+
+        grunt.config('preprocess.options.context.HOST', 'https://test-provider.jsql.it');
+        grunt.config('jsql.target.options.local', false);
+
+        grunt.task.run(['buildDist']);
     });
 
 
