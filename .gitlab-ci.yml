@@ -15,7 +15,7 @@ stages:
   before_script:
     - npm install -g bower grunt
     - npm install
-    - grunt buildDist
+    - grunt
   artifacts:
     paths:
       - dist/
