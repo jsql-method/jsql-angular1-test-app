@@ -5,7 +5,7 @@ WORKDIR /build
 ADD . /build
 RUN npm install -g bower grunt && \
     npm install && \
-    grunt buildDist
+    grunt 
 
 FROM nginx:stable-alpine
 COPY cicd/nginx/default.conf /etc/nginx/conf.d/default.conf

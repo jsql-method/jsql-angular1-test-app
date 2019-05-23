@@ -200,7 +200,7 @@ module.exports = function (grunt) {
                     dist: 'dist/app.min.js',
                     devKeyFileName: 'test-key.key',
                     debug: true,
-                    local: true
+                    env: 'local'
                 }
             }
         }
@@ -251,18 +251,17 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', function () {
-        grunt.task.run([
-            'buildDist',
-            'connect:dist',
-            'concurrent:dist'
-        ]);
+
+        grunt.config('preprocess.options.context.HOST', 'https://test-provider.jsql.it');
+        grunt.config('jsql.target.options.env', 'test');
+
+        grunt.task.run(['buildDist']);
     });
 
 
     grunt.registerTask('preprocess-watch', function () {
 
         grunt.config('preprocess.options.context.HOST', 'http://localhost:9192');
-        // grunt.config('preprocess.options.context.HOST', 'https://provider.jsql.it');
 
         grunt.task.run('preprocess:index');
 
