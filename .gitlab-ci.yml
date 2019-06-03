@@ -15,6 +15,7 @@ stages:
   before_script:
     - npm install -g bower grunt
     - npm install
+    - bower install --allow-root 
     - grunt
   artifacts:
     paths:
