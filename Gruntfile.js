@@ -59,7 +59,7 @@ module.exports = function (grunt) {
 
         connect: {
             options: {
-                port: 9090,
+                port: 9098,
                 hostname: 'localhost'
             },
             dist: {
@@ -195,7 +195,7 @@ module.exports = function (grunt) {
         jsql: {
             target: {
                 options: {
-                    apiKey: 'dawid.senko@jsql.it',
+                    apiKey: 'dawid.senko-angular1@jsql.it',
                     src: 'dist/app.min.js',
                     dist: 'dist/app.min.js',
                     devKeyFileName: 'test-key.key',
